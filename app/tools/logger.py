@@ -1,7 +1,7 @@
 import logging
 
 def setup_logger(name):
-    formatter = logging.Formatter('%(asctime)s - %(name)s -- [%(levelname)s] %(message)s')
+    formatter = logging.Formatter('%(asctime)s - %(filename)s:%(funcName)s:%(lineno)d -- [%(levelname)s] %(message)s')
     stream_handler = logging.StreamHandler()
     stream_handler.setLevel(logging.DEBUG)
     stream_handler.setFormatter(formatter)
