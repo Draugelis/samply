@@ -8,6 +8,20 @@ from app.tools.spotify.helpers import get_headers
 
 
 def create_playlist(name, description, token):
+    """Function for creating playlist
+    on Spotify
+
+    Args:
+        name (str): Playlist name
+        description (str): Playlist description (optional)
+        token (str): Spofity auth token
+
+    Raises:
+        RuntimeError: Raised if HTTP request fails
+
+    Returns:
+        str: Playlist id
+    """
     logger = setup_logger(__name__)
     logger.debug(f'Creating {name} playlist')
 
