@@ -169,14 +169,14 @@ user_results = {
   "display_name": "John Doe",
   "email": "john.doe@test.test",
   "explicit_content": {
-    "filter_enabled": false,
-    "filter_locked": false
+    "filter_enabled": False,
+    "filter_locked": False
   },
   "external_urls": {
     "spotify": "https://open.spotify.com/user/1234567890"
   },
   "followers": {
-    "href": null,
+    "href": None,
     "total": 1
   },
   "href": "https://api.spotify.com/v1/users/1234567890",
@@ -185,4 +185,44 @@ user_results = {
   "product": "premium",
   "type": "user",
   "uri": "spotify:user:1234567890"
+}
+
+new_playlist_response = {
+  "collaborative": False,
+  "description": None,
+  "external_urls": {
+    "spotify": "https://open.spotify.com/playlist/1234567890"
+  },
+  "followers": {
+    "href": None,
+    "total": 0
+  },
+  "href": "https://api.spotify.com/v1/playlists/1234567890",
+  "id": "1234567890",
+  "images": [],
+  "name": "New Playlist",
+  "owner": {
+    "display_name": "qwerty",
+    "external_urls": {
+      "spotify": "https://open.spotify.com/user/qwerty"
+    },
+    "href": "https://api.spotify.com/v1/users/qwerty",
+    "id": "qwerty",
+    "type": "user",
+    "uri": "spotify:user:qwerty"
+  },
+  "primary_color": None,
+  "public": True,
+  "snapshot_id": "321123",
+  "tracks": {
+    "href": "https://api.spotify.com/v1/playlists/1234567890/tracks",
+    "items": [],
+    "limit": 100,
+    "next": None,
+    "offset": 0,
+    "previous": None,
+    "total": 0
+  },
+  "type": "playlist",
+  "uri": "spotify:playlist:1234567890"
 }
