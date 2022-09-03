@@ -7,7 +7,7 @@ from test_data import track_search_results
 
 
 class TestSearchTrack(unittest.TestCase):
-    @responses.actviate
+    @responses.activate
     def test_search_track(self):
         responses.get(
             url='https://api.spotify.com/v1/search?q=nas%20ny%20state%20of%20mind&type=track&limit=1',  # noqa: E501

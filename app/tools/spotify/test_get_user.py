@@ -7,7 +7,7 @@ from test_data import user_results
 
 
 class TestSearchTrack(unittest.TestCase):
-    @responses.actviate
+    @responses.activate
     def test_get_user(self):
         responses.get(
             url='https://api.spotify.com/v1/me',
