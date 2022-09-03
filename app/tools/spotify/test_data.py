@@ -87,3 +87,26 @@ track_search_results = {
     "total": 1014
   }
 } 
+
+user_results = {
+  "country": "US",
+  "display_name": "John Doe",
+  "email": "john.doe@test.test",
+  "explicit_content": {
+    "filter_enabled": false,
+    "filter_locked": false
+  },
+  "external_urls": {
+    "spotify": "https://open.spotify.com/user/1234567890"
+  },
+  "followers": {
+    "href": null,
+    "total": 1
+  },
+  "href": "https://api.spotify.com/v1/users/1234567890",
+  "id": "1234567890",
+  "images": [],
+  "product": "premium",
+  "type": "user",
+  "uri": "spotify:user:1234567890"
+}
