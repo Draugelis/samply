@@ -1,29 +1,27 @@
-import json 
-
 from flask import request
 from flask import jsonify
 
 from app import app
 from app.tools.whosampled.scrapper import scrapper
-from app.tools.spotify import Spotify
+from app.tools.spotify.find_track_data import find_track_data
+
 
 def get_samples(track, token):
-    spotify = Spotify(token)
-
-    samples = scrapper(track)
-    spotify_track_data = spotify.search_track(track)
+    track_data = find_track_data(track, token)
+    track_name = f'{track_data["artist"]}-{track_data["track"]}'
+    samples = scrapper(track_name)
     spotify_sample_data = []
 
     for sample in samples['samples']:
-        spotify_data = spotify.search_track(sample)
+        spotify_data = find_track_data(sample, token)
         spotify_sample_data.append(spotify_data)
 
     result = {
-        'track': spotify_track_data,
+        'track': track_data,
         'samples': spotify_sample_data
     }
     return jsonify(result)
-    
+
 
 @app.route('/samples/', methods=['POST'])
 def search_samples():
@@ -33,5 +31,3 @@ def search_samples():
     samples = get_samples(track, token)
 
     return samples
-
-
