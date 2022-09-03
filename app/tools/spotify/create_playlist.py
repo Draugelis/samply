@@ -26,7 +26,7 @@ def create_playlist(name, description, token):
     logger.debug(f'Creating {name} playlist')
 
     user = get_user(token)
-    playlist_url = base_url + '/user/' + user + '/playlists/'
+    playlist_url = base_url + '/users/' + user + '/playlists/'
     headers = get_headers(token)
     playload = json.dumps({
         'name': name,

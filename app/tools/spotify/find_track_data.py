@@ -22,4 +22,4 @@ def find_track_data(query, token):
     track_id = get_track_id(query)
     if track_id:
         return get_track(track_id, token)
-    return search_track(query)
+    return search_track(query, token)
