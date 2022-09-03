@@ -37,7 +37,16 @@ def parse_track(track_data):
 
 
 def get_track_id(query):
-    re_pattern = 'https:\/\/open\.spotify\.com\/track\/(\w+)'
+    """Function for checking track id
+    from Spotify url.
+
+    Args:
+        query (str): Search query
+
+    Returns:
+        str: track id
+    """
+    re_pattern = 'https:\/\/open\.spotify\.com\/track\/(\w+)'  # noqa: W605
     re_track_id = re.match(re_pattern, query)
 
     if re_track_id:
