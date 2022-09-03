@@ -1,5 +1,5 @@
 import requests
-from app.tools.logger import setup_logger
+from app.tools.spotify import logger
 from app.tools.spotify.config import base_url
 from app.tools.spotify.helpers import get_headers, parse_track
 
@@ -18,7 +18,6 @@ def search_track(track, token):
     Returns:
         dict: Track data
     """
-    logger = setup_logger(__name__)
     logger.debug(f'Searching {track}')
 
     search_url = base_url + '/search/'

@@ -1,7 +1,7 @@
 import json
 
 import requests
-from app.tools.logger import setup_logger
+from app.tools.spotify import logger
 from app.tools.spotify.config import base_url
 from app.tools.spotify.get_user import get_user
 from app.tools.spotify.helpers import get_headers
@@ -22,7 +22,6 @@ def create_playlist(name, description, token):
     Returns:
         str: Playlist id
     """
-    logger = setup_logger(__name__)
     logger.debug(f'Creating {name} playlist')
 
     user = get_user(token)

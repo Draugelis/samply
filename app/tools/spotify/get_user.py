@@ -1,5 +1,5 @@
 import requests
-from app.tools.logger import setup_logger
+from app.tools.spotify import logger
 from app.tools.spotify.config import base_url
 from app.tools.spotify.helpers import get_headers
 
@@ -16,7 +16,6 @@ def get_user(token):
     Returns:
         str: Spotify user id
     """
-    logger = setup_logger(__name__)
     logger.debug('Searching user id')
 
     user_url = base_url + '/me/'

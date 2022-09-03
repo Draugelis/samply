@@ -1,7 +1,7 @@
 import json
 
 import requests
-from app.tools.logger import setup_logger
+from app.tools.spotify import logger
 from app.tools.spotify.config import base_url
 from app.tools.spotify.helpers import get_headers
 
@@ -21,7 +21,6 @@ def add_tracks(playlist_id, tracks, token):
     Returns:
         str: Spotify playlist snapshot id
     """
-    logger = setup_logger(__name__)
     logger.debug('Adding tracks to playlist')
 
     playlist_url = base_url + '/playlists/' + playlist_id + '/tracks/'

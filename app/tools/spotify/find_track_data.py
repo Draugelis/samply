@@ -1,4 +1,4 @@
-from app.tools.logger import setup_logger
+from app.tools.spotify import logger
 from app.tools.spotify.helpers import get_track_id
 from app.tools.spotify.get_track import get_track
 from app.tools.spotify.search_track import search_track
@@ -16,7 +16,6 @@ def find_track_data(query, token):
     Returns:
         dict: Track data
     """
-    logger = setup_logger(__name__)
     logger.debug(f'Trying to find {query}')
 
     track_id = get_track_id(query)
