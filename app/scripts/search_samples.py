@@ -2,13 +2,14 @@ from app.tools.whosampled.scrapper import scrapper
 from app.tools.spotify.find_track_data import find_track_data
 
 
-def search_samples(track, token):
-    # track_name = f'{track_data["artist"]} - {track_data["track"]}'
-
+def collect_samples(track, token):
     samples = scrapper(track)
     samples_spotify_data = []
     for sample in samples['samples']:
-        samples_spotify_data.append(find_track_data(sample, token))
+        try:
+            samples_spotify_data.append(find_track_data(sample, token))
+        except Exception:
+            pass
 
     track_data = find_track_data(track, token)
 
@@ -19,9 +20,9 @@ def search_samples(track, token):
     return result
 
 
-def gather_samples(tracks, token):
+def search_samples(tracks, token):
     samples = []
     for track in tracks:
-        samples.append(search_samples(track, token))
+        samples.append(collect_samples(track, token))
 
     return samples
