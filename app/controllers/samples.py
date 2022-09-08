@@ -1,5 +1,5 @@
 from app import app
-from app.scripts.search_samples import gather_samples
+from app.scripts import search_samples
 from app.tools.helpers import listify
 from flask import jsonify, request
 
@@ -10,6 +10,6 @@ def sample_search():
     content = request.json
     tracks = content['tracks']
 
-    samples = gather_samples(listify(tracks), token)
+    samples = search_samples(listify(tracks), token)
 
     return jsonify(samples)
