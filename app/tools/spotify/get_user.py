@@ -1,5 +1,5 @@
 import requests
-from app.tools.spotify import logger
+from app import logger
 from app.tools.spotify.config import base_url
 from app.tools.spotify.helpers import get_headers
 

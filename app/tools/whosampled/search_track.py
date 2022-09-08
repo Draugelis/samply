@@ -1,5 +1,5 @@
 import requests
-from app.tools.logger import setup_logger
+from app import logger
 from app.tools.whosampled.config import base_url, headers
 from bs4 import BeautifulSoup
 
@@ -14,7 +14,6 @@ def search_track(track):
         str: path to track page
     """
     # Start logging
-    logger = setup_logger(__name__)
     logger.debug(f'Starting {track} search')
     # Request search page
     params = {
