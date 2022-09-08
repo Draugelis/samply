@@ -1,5 +1,5 @@
 import requests
-from app.tools.logger import setup_logger
+from app import logger
 from app.tools.whosampled.config import base_url, headers
 from app.tools.whosampled.helpers import path_to_full_name, scrape_samples
 
@@ -15,7 +15,6 @@ def search_samples(track_path):
     """
     # Start logging
     track_name = path_to_full_name(track_path)
-    logger = setup_logger(__name__)
     logger.debug(f'Search {track_name} samples')
     # Request samples page
     sample_url = base_url + track_path + 'samples/'

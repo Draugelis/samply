@@ -1,4 +1,4 @@
-from app.tools.spotify import logger
+from app import logger
 from app.tools.spotify.helpers import get_track_id
 from app.tools.spotify.get_track import get_track
 from app.tools.spotify.search_track import search_track
