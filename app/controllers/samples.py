@@ -1,5 +1,5 @@
 from app import app
-from app.models.search_samples import gather_samples
+from app.scripts.search_samples import gather_samples
 from app.tools.helpers import listify
 from flask import jsonify, request
 

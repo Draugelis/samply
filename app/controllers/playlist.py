@@ -1,5 +1,5 @@
 from app import app
-from app.models.create_playlist import create_and_update_playlist
+from app.scripts import create_and_update_playlist
 from flask import jsonify, request
 
 
