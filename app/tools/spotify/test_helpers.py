@@ -1,6 +1,11 @@
 import unittest
 
-from .helpers import parse_track, get_headers, get_track_id
+from .helpers import (
+    get_headers,
+    parse_track,
+    get_track_id,
+    get_playlist_url,
+)
 from .test_data import track_search_results
 
 
@@ -23,3 +28,7 @@ class TestHelpers(unittest.TestCase):
         track_id = '0RDm6nifR4k5mHUpX3ZDq7'
         self.assertEqual(get_track_id(track_url), track_id)
         self.assertFalse(get_track_id('Nas N.Y. State of Mind'))
+
+    def test_get_playlist_url(self):
+        playlist_url = 'https://open.spotify.com/playlist/123'
+        self.assertEqual(get_playlist_url('123'), playlist_url)
