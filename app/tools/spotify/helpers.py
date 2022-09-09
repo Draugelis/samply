@@ -52,3 +52,6 @@ def get_track_id(query):
     if re_track_id:
         return re_track_id.groups()[0]
     return False
+
+def get_playlist_url(playlist_id):
+    return f'https://open.spotify.com/playlist/{playlist_id}'
