@@ -2,8 +2,8 @@ import unittest
 
 import responses
 
-from search_samples import search_samples
-from test_data import test_samples_page, test_track_page
+from .search_samples import search_samples
+from .test_data import test_samples_page, test_track_page
 
 
 class TestSearchSample(unittest.TestCase):
