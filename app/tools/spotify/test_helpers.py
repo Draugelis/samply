@@ -1,11 +1,6 @@
 import unittest
 
-from .helpers import (
-    get_headers,
-    parse_track,
-    get_track_id,
-    get_playlist_url,
-)
+from .helpers import get_headers, get_playlist_url, get_track_id, parse_track
 from .test_data import track_search_results
 
 
