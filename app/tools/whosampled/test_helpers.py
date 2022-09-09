@@ -7,7 +7,7 @@ from .test_data import test_samples_page, test_track_page
 class TestHelpers(unittest.TestCase):
     def test_path_to_full_name(self):
         mock_track_path = '/Nas/N.Y.-State-of-Mind'
-        self.assertEqual(path_to_full_name(mock_track_path), 'Nas - N.Y. State of Mind')
+        self.assertEqual(path_to_full_name(mock_track_path), 'Nas - N.Y. State of Mind')  # noqa: E501
 
     def test_scrape_samples_sample_page(self):
         self.assertEqual(scrape_samples(test_samples_page), [
