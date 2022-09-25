@@ -32,7 +32,7 @@ def parse_track(track_data):
     return {
         'artist': track_data['artists'][0]['name'],
         'track': track_data['name'],
-        'uri': track_data['uri']
+        'id': track_data['id']
     }
 
 
