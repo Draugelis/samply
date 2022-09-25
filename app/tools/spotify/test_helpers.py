@@ -15,7 +15,7 @@ class TestHelpers(unittest.TestCase):
         self.assertEqual(parse_track(track_search_results['tracks']['items'][0]), {
             'artist': 'Nas',
             'track': 'N.Y. State of Mind',
-            'uri': 'spotify:track:0trHOzAhNpGCsGBEu7dOJo'
+            'id': '0trHOzAhNpGCsGBEu7dOJo'
         })
 
     def test_get_track_id(self):
