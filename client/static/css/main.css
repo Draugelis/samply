@@ -1,0 +1,56 @@
+body {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.content {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    width: 50vw;
+    height: 100vh;
+
+    padding: 30px 15px 30px 15px;
+
+    /* border: 1px black solid; */
+}
+
+dl.sample-list dt {
+    width: 50vw;
+    padding: 15px 0 10px 0;
+}
+
+dl.sample-list dd {
+    padding: 5px 0 5px 0;
+}
+
+
+.input-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+
+    width: 100%;
+    padding: 5px;
+
+    /* border: 1px black solid; */
+}
+
+.input-container input {
+    width: 50%;
+    margin: 0px 5px 0px 5px;
+    border-radius: 5px;
+}
+
+.input-container button {
+    margin: 0px 5px 0px 5px;
+    border-radius: 5px;
+}
+
+.track-entry {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+}
