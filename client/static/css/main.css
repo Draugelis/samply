@@ -54,3 +54,7 @@ dl.sample-list dd {
     justify-content: center;
     flex-direction: row;
 }
+
+.playlist {
+    width: 50vw;
+}

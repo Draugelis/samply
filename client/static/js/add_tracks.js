@@ -1,5 +1,6 @@
 document.getElementById("trackInputButton").addEventListener("click", addTrack);
 
+
 async function addTrack() {
     const track = document.getElementById("trackInputText").value;
 
@@ -34,8 +35,6 @@ async function addTrack() {
             }
         })
         .catch((err) => console.error(err.message));
-    
-    return trackData
 };
 
 function generateTrackEntry(track_id) {
@@ -63,7 +62,7 @@ function generateTrackEntry(track_id) {
 }
 
 function addTrackEntry(track_data) {
-    const track_id = track_data.uri.replace("spotify:track:", "");
+    const track_id = track_data.id;
     const track_entry = document.createElement("dt");
     const sample_list = document.getElementById("sample-list");
 
@@ -72,7 +71,7 @@ function addTrackEntry(track_data) {
 }
 
 function addSampleEntry(sample_data) {
-    const track_id = sample_data.uri.replace("spotify:track:", "");
+    const track_id = sample_data.id;
     const track_entry = document.createElement("dd");
     const sample_list = document.getElementById("sample-list");
 
