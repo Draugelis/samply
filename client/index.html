@@ -6,12 +6,32 @@
         <meta name='viewport' content='width=device-width, initial-scale=1'>
         <link rel='stylesheet' type='text/css' media='screen' href='static/css/main.css'>
     </head>
-    <body>
+    <body class="wave">
         <div class="content">
             <div class="input-container" id="input-container">
-                <input type="text" id="trackInputText"/>
-                <button id="trackInputButton">Add track</button>
-                <button id="proceedButton">Proceed</button>
+                <div class="inputWrapper" id="trackInput">
+                    <input type="text" id="trackInputText" placeholder="Enter track name"/>
+                    <button id="trackInputButton">
+                        <img src="static/img/plus-circle.svg" alt="Add track button" />
+                    </button>
+                    <button id="proceedButton">
+                        <img src="static/img/arrow-right-circle.svg" alt="Proceed button" />
+                    </button>
+                </div>
+                <div class="inputWrapper hide" id="playlistInput">
+                    <input type="text" id="playlistInputText" placeholder="Enter playlist name"/>
+                    <button id="playlistCreateButton">
+                        <img src="static/img/check-circle.svg" alt="Create playlist button" />
+                    </button>
+                    <button id="backButton">
+                        <img src="static/img/arrow-left-circle.svg" alt="Back button" />
+                    </button>
+                </div>
+                <div class="inputWrapper hide" id="restartInput">
+                    <button id="restartButton">
+                        <img src="static/img/refresh-ccw.svg" alt="Restart button" />
+                    </button>
+                </div>
             </div>
             <div class="output-container" id="output-container">
                 <dl id="sample-list" class="sample-list">
@@ -19,19 +39,22 @@
                     <!-- <dt>
                         <div class="track-entry">
                             <input type="checkbox" id="5le4sn0iMcnKU56bdmNzso" name="trackEntryCheckbox" checked>
+                            <span class="checkmark"></span>
                             <iframe src="https://open.spotify.com/embed/track/5le4sn0iMcnKU56bdmNzso?theme=0" width="100%" height="80" frameBorder="0"></iframe>    
                         </div>   
                     </dt>
                     <dd>
                         <div class="track-entry">
                             <input type="checkbox" id="5le4sn0iMcnKU56bdmNzso" name="trackEntryCheckbox" checked>
-                            <iframe src="https://open.spotify.com/embed/track/5le4sn0iMcnKU56bdmNzso" width="100%" height="80" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>    
+                            <span class="checkmark"></span>
+                            <iframe src="https://open.spotify.com/embed/track/5le4sn0iMcnKU56bdmNzso?theme=0" width="100%" height="80" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>    
                         </div>   
                     </dd>
                     <dd>
                         <div class="track-entry">
                             <input type="checkbox" id="5le4sn0iMcnKU56bdmNzso" name="trackEntryCheckbox" checked>
-                            <iframe src="https://open.spotify.com/embed/track/5le4sn0iMcnKU56bdmNzso" width="100%" height="80" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>    
+                            <span class="checkmark"></span>
+                            <iframe src="https://open.spotify.com/embed/track/5le4sn0iMcnKU56bdmNzso?theme=0" width="100%" height="80" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>    
                         </div>   
                     </dd> -->
                     <!-- Dummy tracks for testing end here -->
@@ -39,6 +62,7 @@
             </div>
         </div>
     </body>
-    <script src="static/js/add_tracks.js"></script>
-    <script src="static/js/create_playlist.js"></script>
+    <!-- <script src="static/js/add_tracks.js"></script>
+    <script src="static/js/create_playlist.js"></script> -->
+    <script src="static/js/main.js"></script>
 </html>
