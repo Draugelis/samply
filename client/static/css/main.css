@@ -18,7 +18,6 @@ body {
     width: 50vw;
     max-width: 720px;
     margin-top: 5%;
-    /* border: 1px red solid; */
 }
 
 .wave {
@@ -29,14 +28,11 @@ body {
     position: relative;
 
     background-image: url("../img/big-waves.svg");
-    /* height: 40wh; */
 }
 
 /* Input */
 .input-container {
     width: 100%;
-    /* border: 1px red solid; */
-
     display: flex;
     flex-direction: column;
     justify-content: center;
