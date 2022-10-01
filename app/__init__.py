@@ -1,10 +1,11 @@
 from flask import Flask
 
-app = Flask(__name__)
+app = Flask(__name__, static_url_path='/static')
 
-from app.tools.logger import setup_logger
+from app.tools.logger import setup_logger # noqa
 
 logger = setup_logger(__name__)
 
-from app.controllers.playlist import create_playlist
-from app.controllers.samples import sample_search
+from app.controllers.playlist import create_playlist # noqa
+from app.controllers.samples import sample_search # noqa
+from app.routes.index import index_page # noqa

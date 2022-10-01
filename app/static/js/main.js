@@ -9,7 +9,7 @@ document.getElementById("restartButton").addEventListener("click", stepRestart);
 async function addTrack() {
     const track = document.getElementById("trackInputText").value;
 
-    const url = "http://127.0.0.1:5000/samples/";
+    const url = "/samples/";
     const data = {
         "tracks": track
     };
@@ -88,7 +88,7 @@ async function createPlaylist() {
     const tracks = getTrackUris();
     const playlist_name = document.getElementById("playlistInputText").value;
 
-    const url = "http://127.0.0.1:5000/playlist/";
+    const url = "/playlist/";
  
     const data = {
         "name": playlist_name,
