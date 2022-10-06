@@ -16,7 +16,7 @@ function getCookie(name) {
 }
 
 function spotify_login() {
-  let client_id = "";
+  let client_id = "461f9d29c55744a28f55ef0d762295c6";
   let redirect_uri = "http://127.0.0.1:5000/spotify";
   let scope = "playlist-modify-public";
 
@@ -30,6 +30,7 @@ function spotify_login() {
 }
 
 async function addTrack() {
+  document.getElementById("trackInputButton").classList.add("is-loading");
   const track = document.getElementById("trackInputText").value;
 
   const url = "/samples/";
@@ -61,6 +62,8 @@ async function addTrack() {
       }
     })
     .catch((err) => console.error(err.message));
+  
+  document.getElementById("trackInputButton").classList.remove("is-loading");
 }
 
 function generateTrackEntry(track_id) {
@@ -106,6 +109,7 @@ function addSampleEntry(sample_data) {
 }
 
 async function createPlaylist() {
+  document.getElementById("playlistCreateButton").classList.add("is-loading");
   const tracks = getTrackUris();
   const playlist_name = document.getElementById("playlistInputText").value;
 
@@ -138,13 +142,15 @@ async function createPlaylist() {
       addPlaylistContainer(json.id);
     })
     .catch((err) => console.error(err.message));
+
+  document.getElementById("playlistCreateButton").classList.remove("is-loading");
 }
 
 function getTrackUris() {
   const selected_tracks = Array.from(document.querySelectorAll(
     "input[name=trackEntryCheckbox]:checked"
   ));
-  const track_uris = selected_tracks.map(({id}) => `spotify:track:${id}`)
+  let track_uris = selected_tracks.map(({id}) => `spotify:track:${id}`)
   track_uris = [...new Set(track_uris)]; // Removing duplicates
   return track_uris;
 }
