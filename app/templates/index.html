@@ -1,46 +1,99 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset='utf-8'>
-        <title>Samply</title>
-        <meta name='viewport' content='width=device-width, initial-scale=1'>
-        <link rel='stylesheet' type='text/css' media='screen' href='/static/css/main.css'>
-    </head>
-    <body class="wave">
-        <div class="content">
-            <div id="spotify-login">
-                <button id="spotifyButton">Spotify</button>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Samply</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel='stylesheet' type='text/css' media='screen' href='/static/css/main.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='/static/css/bulmaswatch.min.css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <section class="hero is-primary block">
+        <div class="hero-body">
+            <p class="title">
+                Samply
+            </p>
+        </div>
+    </section>
+
+    <div class="columns is-left">
+        <div class="column is-half is-offset-1">
+
+            <div class="block" id="input-container">
+                <div class="block" id="spotifyLogin">
+                    <button class="button is-primary is-rounded" id="spotifyButton">
+                        <span class="icon is-small">
+                            <i class="fa-brands fa-spotify"></i>
+                        </span>
+                        <span>Login to Spotify</span>
+                    </button>
+                </div>
+
+                <div class="block field is-grouped" id="trackInput">
+                    <p class="control is-expanded has-icons-left">
+                        <input class="input is-rounded" type="text" id="trackInputText"
+                            placeholder="Enter track name" />
+                        <span class="icon is-small is-left">
+                            <i class="fa-solid fa-music"></i>
+                        </span>
+                    </p>
+                    <button class="button control is-primary is-rounded" id="trackInputButton">
+                        <span class="icon is-small">
+                            <i class="fa-solid fa-plus"></i>
+                        </span>
+                        <span>Add track</span>
+                    </button>
+                    <button class="button control is-primary is-rounded" id="proceedButton">
+                        <span class="icon is-small">
+                            <i class="fa-solid fa-chevron-right"></i>
+                        </span>
+                        <span>Create playlist</span>
+                    </button>
+                </div>
+
+                <div class="block field is-grouped hide" id="playlistInput">
+                    <p class="control is-expanded has-icons-left">
+                        <input class="input is-rounded" type="text" id="playlistInputText"
+                            placeholder="Enter playlist name" />
+                        <span class="icon is-small is-left">
+                            <i class="fa-solid fa-music"></i>
+                        </span>
+                    </p>
+                    <button class="button control is-primary is-rounded" id="playlistCreateButton">
+                        <span class="icon is-small">
+                            <i class="fas fa-check"></i>
+                        </span>
+                        <span>Create playlist</span>
+                    </button>
+                    <button class="button control is-primary is-rounded" id="backButton">
+                        <span class="icon is-small">
+                            <i class="fa-solid fa-chevron-left"></i>
+                        </span>
+                        <span>Go back</span>
+                    </button>
+                </div>
+
+                <div class="block hide" id="restartInput">
+                    <button class="button is-primary is-rounded" id="restartButton">
+                        <span class="icon is-small">
+                            <i class="fa-solid fa-arrow-rotate-left"></i>
+                        </span>
+                        <span>Restart</span>
+                    </button>
+                </div>
+
             </div>
-            <div class="input-container" id="input-container">
-                <div class="inputWrapper" id="trackInput">
-                    <input type="text" id="trackInputText" placeholder="Enter track name"/>
-                    <button id="trackInputButton">
-                        <img src="/static/img/plus-circle.svg" alt="Add track button" />
-                    </button>
-                    <button id="proceedButton">
-                        <img src="/static/img/arrow-right-circle.svg" alt="Proceed button" />
-                    </button>
-                </div>
-                <div class="inputWrapper hide" id="playlistInput">
-                    <input type="text" id="playlistInputText" placeholder="Enter playlist name"/>
-                    <button id="playlistCreateButton">
-                        <img src="/static/img/check-circle.svg" alt="Create playlist button" />
-                    </button>
-                    <button id="backButton">
-                        <img src="/static/img/arrow-left-circle.svg" alt="Back button" />
-                    </button>
-                </div>
-                <div class="inputWrapper hide" id="restartInput">
-                    <button id="restartButton">
-                        <img src="/static/img/refresh-ccw.svg" alt="Restart button" />
-                    </button>
-                </div>
-            </div>
-            <div class="output-container" id="output-container">
-                <dl id="sample-list" class="sample-list">
-                </dl>
+
+            <div class="block is-one-third" id="output-container">
             </div>
         </div>
-    </body>
-    <script src="/static/js/main.js"></script>
+    </div>
+</body>
+<script src="/static/js/main.js"></script>
+
 </html>
