@@ -5,15 +5,15 @@
     <meta charset="utf-8" />
     <title>Samply</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <!-- <link rel='stylesheet' type='text/css' media='screen' href='/static/css/main.css'> -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css" />
+    <link rel='stylesheet' type='text/css' media='screen' href='/static/css/main.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='/static/css/bulmaswatch.min.css'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
         integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
-    <section class="hero">
+    <section class="hero is-primary block">
         <div class="hero-body">
             <p class="title">
                 Samply
@@ -21,71 +21,76 @@
         </div>
     </section>
 
-    <div class="container">
-        <div class="block" id="spotify-login">
-            <button class="button is-primary is-rounded" id="spotifyButton">
-                <span class="icon is-small">
-                    <i class="fa-brands fa-spotify"></i>
-                </span>
-                <span>Login to Spotify</span>
-            </button>
-        </div>
+    <div class="columns is-left">
+        <div class="column is-half is-offset-1">
 
-        <div class="block" id="input-container">
-            <div class="field is-grouped" id="trackInput">
-                <p class="control has-icons-left">
-                    <input class="input is-rounded" type="text" id="trackInputText" placeholder="Enter track name" />
-                    <span class="icon is-small is-left">
-                        <i class="fa-solid fa-music"></i>
-                    </span>
-                </p>
-                <button class="button control is-rounded" id="trackInputButton">
-                    <span class="icon is-small">
-                        <i class="fa-solid fa-plus"></i>
-                    </span>
-                    <span>Add track</span>
-                </button>
-                <button class="button control is-rounded" id="proceedButton">
-                    <span class="icon is-small">
-                        <i class="fa-solid fa-chevron-right"></i>
-                    </span>
-                    <span>Create playlist</span>
-                </button>
+            <div class="block" id="input-container">
+                <div class="block" id="spotifyLogin">
+                    <button class="button is-primary is-rounded" id="spotifyButton">
+                        <span class="icon is-small">
+                            <i class="fa-brands fa-spotify"></i>
+                        </span>
+                        <span>Login to Spotify</span>
+                    </button>
+                </div>
+
+                <div class="block field is-grouped" id="trackInput">
+                    <p class="control is-expanded has-icons-left">
+                        <input class="input is-rounded" type="text" id="trackInputText"
+                            placeholder="Enter track name" />
+                        <span class="icon is-small is-left">
+                            <i class="fa-solid fa-music"></i>
+                        </span>
+                    </p>
+                    <button class="button control is-primary is-rounded" id="trackInputButton">
+                        <span class="icon is-small">
+                            <i class="fa-solid fa-plus"></i>
+                        </span>
+                        <span>Add track</span>
+                    </button>
+                    <button class="button control is-primary is-rounded" id="proceedButton">
+                        <span class="icon is-small">
+                            <i class="fa-solid fa-chevron-right"></i>
+                        </span>
+                        <span>Create playlist</span>
+                    </button>
+                </div>
+
+                <div class="block field is-grouped hide" id="playlistInput">
+                    <p class="control is-expanded has-icons-left">
+                        <input class="input is-rounded" type="text" id="playlistInputText"
+                            placeholder="Enter playlist name" />
+                        <span class="icon is-small is-left">
+                            <i class="fa-solid fa-music"></i>
+                        </span>
+                    </p>
+                    <button class="button control is-primary is-rounded" id="playlistCreateButton">
+                        <span class="icon is-small">
+                            <i class="fas fa-check"></i>
+                        </span>
+                        <span>Create playlist</span>
+                    </button>
+                    <button class="button control is-primary is-rounded" id="backButton">
+                        <span class="icon is-small">
+                            <i class="fa-solid fa-chevron-left"></i>
+                        </span>
+                        <span>Go back</span>
+                    </button>
+                </div>
+
+                <div class="block hide" id="restartInput">
+                    <button class="button is-primary is-rounded" id="restartButton">
+                        <span class="icon is-small">
+                            <i class="fa-solid fa-arrow-rotate-left"></i>
+                        </span>
+                        <span>Restart</span>
+                    </button>
+                </div>
+
             </div>
 
-            <div class="field is-grouped" id="playlistInput">
-                <p class="control has-icons-left">
-                    <input class="input is-rounded" type="text" id="playlistInputText" placeholder="Enter playlist name" />
-                    <span class="icon is-small is-left">
-                        <i class="fa-solid fa-music"></i>
-                    </span>
-                </p>
-                <button class="button control is-rounded" id="playlistCreateButton">
-                    <span class="icon is-small">
-                        <i class="fas fa-check"></i>
-                    </span>
-                    <span>Create playlist</span>
-                </button>
-                <button class="button control is-rounded" id="backButton">
-                    <span class="icon is-small">
-                        <i class="fa-solid fa-chevron-left"></i>
-                    </span>
-                    <span>Go back</span>
-                </button>
+            <div class="block is-one-third" id="output-container">
             </div>
-
-            <div class="block" id="restartInput">
-                <button class="button is-primary is-rounded" id="restartButton">
-                    <span class="icon is-small">
-                        <i class="fa-solid fa-arrow-rotate-left"></i>
-                    </span>
-                    <span>Restart</span>
-                </button>
-            </div>
-        </div>
-
-        <div id="output-container">
-            <dl id="sample-list" class="sample-list"></dl>
         </div>
     </div>
 </body>
