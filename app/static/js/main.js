@@ -13,7 +13,7 @@ function getCookie(name) {
 
 function spotify_login() {
   let client_id = "";
-  let redirect_uri = "http://127.0.0.1:5000/spotify";
+  let redirect_uri = window.location.href + "spotify";
   let scope = "playlist-modify-public";
 
   let url = "https://accounts.spotify.com/authorize";
@@ -119,7 +119,7 @@ function stepBack() {
 function stepRestart() {
   document.getElementById("restartInput").classList.add("hide");
   document.getElementById("trackInput").classList.remove("hide");
-  document.getElementsByClassName("playlist")[0].remove();
+  document.getElementById("playlistPanel").remove();
 }
 
 function addTrackPanel(track_data) {
@@ -179,6 +179,7 @@ function getTrackUris() {
 function addPlaylistPanel(playlist_data) {
   const playlist_panel = document.createElement("div");
   playlist_panel.classList.add("box");
+  playlist_panel.setAttribute("id", "playlistPanel");
 
   const embed_url = `https://open.spotify.com/embed/playlist/${playlist_data.id}?theme=0`;
   const playlist_frame = document.createElement("iframe");
