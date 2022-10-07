@@ -13,7 +13,7 @@ function getCookie(name) {
 
 function spotify_login() {
   let client_id = "";
-  let redirect_uri = "http://127.0.0.1:5000/spotify";
+  let redirect_uri = window.location.href + "spotify";
   let scope = "playlist-modify-public";
 
   let url = "https://accounts.spotify.com/authorize";
