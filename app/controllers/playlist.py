@@ -5,7 +5,7 @@ from flask import jsonify, request
 
 @app.route('/playlist/', methods=['POST'])
 def create_playlist():
-    token = request.headers.get('X-Spotify')
+    token = request.cookies.get('spotify_token')
     content = request.json
     name = content['name']
     description = content.get('description')
