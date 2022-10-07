@@ -52,7 +52,12 @@ async function addTrack() {
       return response.json();
     })
     .then(([json]) => {
-      addTrackPanel(json);
+      if(json.status == "OK") {
+        addTrackPanel(json);
+      }
+      else {
+        hightlightFieldError("trackInputText");
+      }
     })
     .catch((err) => console.error(err.message));
   
@@ -85,11 +90,15 @@ async function createPlaylist() {
       if (!response.ok) {
         throw new Error("Failed fetching track data");
       }
-      console.log(response);
       return response.json();
     })
     .then((json) => {
-      addPlaylistPanel(json);
+      if(json.status == "OK") {
+        addPlaylistPanel(json);
+      }
+      else {
+        hightlightFieldError("playlistInputText");
+      }
     })
     .catch((err) => console.error(err.message));
 
@@ -186,4 +195,11 @@ function addPlaylistPanel(playlist_data) {
 
   document.getElementById("playlistInput").classList.add("hide");
   document.getElementById("restartInput").classList.remove("hide");
+}
+
+function hightlightFieldError(field_id) {
+  document.getElementById(field_id).classList.add("is-danger");
+  setTimeout(() => {
+    document.getElementById(field_id).classList.remove("is-danger");;
+  }, "5000")
 }

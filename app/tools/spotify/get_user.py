@@ -24,7 +24,7 @@ def get_user(token):
 
     if not response.ok:
         logger.error('User search failed')
-        raise RuntimeError('User search failed')
+        raise Exception('User search failed')
 
     logger.info('User found')
     return response.json()['id']
