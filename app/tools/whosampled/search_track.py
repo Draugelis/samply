@@ -26,14 +26,14 @@ def search_track(track):
 
     if not response.ok:
         logger.error('Search for %s failed.' % (track,))
-        raise RuntimeError('Track search failed')
+        raise Exception('Track search failed')
 
     soup = BeautifulSoup(response.text, 'html.parser')
     top_hit = soup.findAll('div', {'class': 'topHit'})
 
     if not top_hit:
         logger.warning('Track %s was not found.' % (track,))
-        raise RuntimeError('Track was not found')
+        raise Exception('Track was not found')
 
     track_path = top_hit[0].a['href']
 

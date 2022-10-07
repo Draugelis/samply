@@ -23,7 +23,7 @@ def search_samples(track_path):
 
     if not response.ok and response.status_code != 404:
         logger.error('Request to %s samples page failed.' % (track_name,))
-        raise RuntimeError('Sample search failed')
+        raise Exception('Sample search failed')
 
     if response.status_code == 404:
         """HTTP 404 is returned if track has 3 or less samples
