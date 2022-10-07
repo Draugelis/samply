@@ -1,6 +1,7 @@
 import requests
 from app import logger
 from app.tools.whosampled.config import base_url, headers
+from app.tools.whosampled.helpers import is_track_path
 from bs4 import BeautifulSoup
 
 
@@ -34,6 +35,11 @@ def search_track(track):
         logger.warning('Track %s was not found.' % (track,))
         raise RuntimeError('Track was not found')
 
-    track_path = top_hit[0].a['href'] 
+    track_path = top_hit[0].a['href']
+
+    if not is_track_path(track_path):
+        logger.warning('Track %s was not found.' % (track,))
+        raise Exception('Track was not found')
+
     logger.info('Track %s was found. Path: %s' % (track, track_path,))
     return track_path

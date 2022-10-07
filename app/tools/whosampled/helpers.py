@@ -1,6 +1,7 @@
 """Helper functions for whosampled scrapper
 """
 from bs4 import BeautifulSoup
+import re
 
 
 def path_to_full_name(track_path):
@@ -38,3 +39,9 @@ def scrape_samples(html):
         sample_list.append(f'{sample_name} - {sample_artist}')
 
     return sample_list
+
+
+def is_track_path(path):
+    track_path_pattern = r'\/[\w\W]+\/[\w\W]+\/'  # noqa: W605
+
+    return bool(re.match(track_path_pattern, path))
