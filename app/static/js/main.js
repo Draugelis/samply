@@ -1,12 +1,15 @@
 document.getElementById("trackInputButton").addEventListener("click", addTrack);
 document.getElementById("proceedButton").addEventListener("click", stepForward);
-document.getElementById("playlistCreateButton").addEventListener("click", createPlaylist);
+document
+  .getElementById("playlistCreateButton")
+  .addEventListener("click", createPlaylist);
 document.getElementById("backButton").addEventListener("click", stepBack);
 document.getElementById("restartButton").addEventListener("click", stepRestart);
-document.getElementById("spotifyButton").addEventListener("click", spotify_login);
+document
+  .getElementById("spotifyButton")
+  .addEventListener("click", spotify_login);
 
 showInput();
-
 
 function getCookie(name) {
   const value = `; ${document.cookie}`;
@@ -41,7 +44,7 @@ async function addTrack() {
   const requestOptions = {
     method: "POST",
     headers: {
-      "Content-Type": "application/json"
+      "Content-Type": "application/json",
     },
     body: JSON.stringify(data),
     redirect: "follow",
@@ -55,15 +58,14 @@ async function addTrack() {
       return response.json();
     })
     .then(([json]) => {
-      if(json.status == "OK") {
+      if (json.status == "OK") {
         addTrackPanel(json);
-      }
-      else {
+      } else {
         hightlightFieldError("trackInputText");
       }
     })
     .catch((err) => console.error(err.message));
-  
+
   document.getElementById("trackInputButton").classList.remove("is-loading");
 }
 
@@ -82,7 +84,7 @@ async function createPlaylist() {
   const requestOptions = {
     method: "POST",
     headers: {
-      "Content-Type": "application/json"
+      "Content-Type": "application/json",
     },
     body: JSON.stringify(data),
     redirect: "follow",
@@ -96,23 +98,23 @@ async function createPlaylist() {
       return response.json();
     })
     .then((json) => {
-      if(json.status == "OK") {
+      if (json.status == "OK") {
         addPlaylistPanel(json);
-      }
-      else {
+      } else {
         hightlightFieldError("playlistInputText");
       }
     })
     .catch((err) => console.error(err.message));
 
-  document.getElementById("playlistCreateButton").classList.remove("is-loading");
+  document
+    .getElementById("playlistCreateButton")
+    .classList.remove("is-loading");
 }
 
 function showInput() {
-  if(getCookie("spotify_token")) {
+  if (getCookie("spotify_token")) {
     document.getElementById("trackInput").classList.remove("hide");
-  }
-  else {
+  } else {
     document.getElementById("spotifyLogin").classList.remove("hide");
   }
 }
@@ -137,14 +139,14 @@ function addTrackPanel(track_data) {
   const track_panel = document.createElement("div");
   track_panel.classList.add("panel");
   track_panel.classList.add("fadein");
-  
+
   const track_panel_head = document.createElement("p");
   track_panel_head.classList.add("panel-heading");
   track_panel_head.innerText = `${track_data.track.artist} - ${track_data.track.track}`;
 
   track_panel.appendChild(track_panel_head);
   track_panel.appendChild(getTrackBlock(track_data.track.id));
-  for(sample of track_data.samples) {
+  for (sample of track_data.samples) {
     track_panel.appendChild(getTrackBlock(sample.id));
   }
 
@@ -179,10 +181,10 @@ function getTrackBlock(track_id) {
 }
 
 function getTrackUris() {
-  const selected_tracks = Array.from(document.querySelectorAll(
-    "input[name=trackEntryCheckbox]:checked"
-  ));
-  let track_uris = selected_tracks.map(({id}) => `spotify:track:${id}`)
+  const selected_tracks = Array.from(
+    document.querySelectorAll("input[name=trackEntryCheckbox]:checked")
+  );
+  let track_uris = selected_tracks.map(({ id }) => `spotify:track:${id}`);
   track_uris = [...new Set(track_uris)]; // Removing duplicates
   return track_uris;
 }
@@ -213,6 +215,6 @@ function addPlaylistPanel(playlist_data) {
 function hightlightFieldError(field_id) {
   document.getElementById(field_id).classList.add("is-danger");
   setTimeout(() => {
-    document.getElementById(field_id).classList.remove("is-danger");;
-  }, "5000")
+    document.getElementById(field_id).classList.remove("is-danger");
+  }, "5000");
 }

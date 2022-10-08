@@ -1,19 +1,24 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Samply</title>
-    </head>
-    <body>
-        <script>
-            fragments = window.location.hash
-            if(fragments) {
-                let token = fragments.substring(1).split("&")[0].split("=")[1];
-                let max_token_age = fragments.substring(1).split("&")[2].split("=")[1];
-                let now = new Date();
-                now.setTime(now.getTime() + max_token_age * 1000);
-                document.cookie = "spotify_token=" + token + "; expires=" + now.toUTCString() + "; path=/;"
-            }
-            window.location.replace("/");
-        </script>
-    </body>
+  <head>
+    <title>Samply</title>
+  </head>
+  <body>
+    <script>
+      fragments = window.location.hash;
+      if (fragments) {
+        let token = fragments.substring(1).split("&")[0].split("=")[1];
+        let max_token_age = fragments.substring(1).split("&")[2].split("=")[1];
+        let now = new Date();
+        now.setTime(now.getTime() + max_token_age * 1000);
+        document.cookie =
+          "spotify_token=" +
+          token +
+          "; expires=" +
+          now.toUTCString() +
+          "; path=/;";
+      }
+      window.location.replace("/");
+    </script>
+  </body>
 </html>
