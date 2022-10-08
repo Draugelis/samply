@@ -35,7 +35,7 @@ def create_playlist(name, description, token):
 
     if response.status_code != 201:
         logger.error(f'Failed to create a playlist. {response.status_code}')
-        raise RuntimeError('Failed to create a playlist')
+        raise Exception('Failed to create a playlist')
 
     logger.info(f'Successfully created playlist {name}')
     playlist_id = response.json()['id']

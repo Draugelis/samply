@@ -6,7 +6,7 @@ from flask import jsonify, request
 
 @app.route('/samples/', methods=['POST'])
 def sample_search():
-    token = request.headers.get('X-Spotify')
+    token = request.cookies.get('spotify_token')
     content = request.json
     tracks = content['tracks']
 

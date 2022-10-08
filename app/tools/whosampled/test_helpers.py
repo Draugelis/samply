@@ -1,6 +1,6 @@
 import unittest
 
-from .helpers import path_to_full_name, scrape_samples
+from .helpers import path_to_full_name, scrape_samples, is_track_path
 from .test_data import test_samples_page, test_track_page
 
 
@@ -23,3 +23,7 @@ class TestHelpers(unittest.TestCase):
             'Thief of Bagdad - Lee Erwin',
             'All Night (Drums) - George Clinton'
         ])
+
+    def test_is_track_path(self):
+        self.assertTrue(is_track_path('/Nas/N.Y.-State-of-Mind/'))
+        self.assertFalse(is_track_path('/Nas/'))

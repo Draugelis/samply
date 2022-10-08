@@ -23,4 +23,4 @@ class TestSearchTrack(unittest.TestCase):
             body=test_search_page_not_found
         )
         test_query = 'something I cant find'
-        self.assertRaises(RuntimeError, search_track, test_query)
+        self.assertRaises(Exception, search_track, test_query)

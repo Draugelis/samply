@@ -25,7 +25,7 @@ def get_track(track_id, token):
 
     if not response.ok:
         logger.error(f'Failed to get track {track_id}')
-        raise RuntimeError('Failed to get track')
+        raise Exception('Failed to get track')
 
     logger.info(f'Got track {track_id}')
     track_data = parse_track(response.json())

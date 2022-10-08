@@ -32,7 +32,7 @@ def add_tracks(playlist_id, tracks, token):
 
     if response.status_code != 201:
         logger.error(f'Failed to add tracks. {response.status_code}')
-        raise RuntimeError('Failed to create a playlist')
+        raise Exception('Failed to create a playlist')
 
     logger.info(f'Successfully added tracks {tracks}')
     snapshot_id = response.json()['snapshot_id']

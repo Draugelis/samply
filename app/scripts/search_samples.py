@@ -3,7 +3,14 @@ from app.tools.spotify.find_track_data import find_track_data
 
 
 def collect_samples(track, token):
-    samples = scrapper(track)
+    try:
+        samples = scrapper(track)
+    except Exception:
+        return {
+            'status': 'ERROR',
+            'error': 'Failed to find track'
+        }
+
     samples_spotify_data = []
     for sample in samples['samples']:
         try:
@@ -14,6 +21,7 @@ def collect_samples(track, token):
     track_data = find_track_data(track, token)
 
     result = {
+        'status': 'OK',
         'track': track_data,
         'samples': samples_spotify_data
     }

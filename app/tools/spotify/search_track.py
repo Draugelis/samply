@@ -30,7 +30,7 @@ def search_track(track, token):
 
     if not response.ok:
         logger.error(f'{track} search failed; Status: {response.status_code}')
-        raise RuntimeError('Track search failed')
+        raise Exception('Track search failed')
 
     logger.info(f'{track} was found')
     track_data = parse_track(response.json()['tracks']['items'][0])

@@ -1,139 +1,51 @@
-@font-face {
-    font-family: Circular;
-    src: url("../fonts/ProductSans-Medium.ttf");
+.hide {
+  display: none !important;
+}
+
+.fadein {
+  opacity: 1;
+  animation: fade-in 1.5s linear;
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
 }
 
 body {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    background-color: #001122;
+  height: 100vh;
 }
 
-.content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    width: 50vw;
-    max-width: 720px;
-    margin-top: 5%;
+.hero.is-primary {
+  background-color: #ef7c8e;
 }
 
-.wave {
-    background-repeat: no-repeat;
-    background-position: top;
-    background-size: cover;
-    aspect-ratio: 900/600;
-    position: relative;
-
-    background-image: url("../img/big-waves.svg");
+.button.is-primary {
+  background-color: #ef7c8e;
 }
 
-/* Input */
-.input-container {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
+.button.is-primary.is-hovered,
+.button.is-primary:hover {
+  background-color: #d8a7b1;
 }
 
-.inputWrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: row;
-
-    width: 75%;
-    height: 32px;
-
-    padding: 3px 5px 0px 15px;
-    background-color: rgba(187, 187, 187, 0.6);
-    border-radius: 40px;
-    box-shadow: 2px 2px #001122;
+.button.is-primary.is-active,
+.button.is-primary:active {
+  background-color: #ef7c8e;
 }
 
-.restartWrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.button.is-primary.is-active,
+.button.is-primary.is-focused,
+.button.is-primary:active,
+.button.is-primary:focus {
+  border-color: #e2808a;
 }
 
-.input-container input {
-    width: 100%;
-    background: none;
-    border: none;
-    color:white;
-    font-family: Circular;
-    font-size: 1em;
+input[type="checkbox"] {
+  accent-color: #d8a7b1;
 }
-
-.input-container input:focus-visible {
-    outline: none;
-}
-
-button img:hover {
-    scale: 110%
-}
-
-.input-container button {
-    border: none;
-    background: none;
-    cursor: pointer;
-}
-
-.hide {
-    display: none;
-}
-
-/* Output - Tracks */
-.output-container {
-    width: 100%;
-
-    /* border: 1px red solid; */
-}
-
-dl.sample-list dt {
-    padding: 15px 10px 10px 10px;
-}
-
-dl.sample-list dd {
-    padding: 5px 10px 5px 10px;
-} 
-
-.track-entry {
-    display: flex;
-    justify-content: center;
-    flex-direction: row;
-}
-
-/* Output - Playlist */
-.playlist {
-    width: 100%;
-}
-
- /* Customize the label (the container) */
- .container {
-    display: block;
-    position: relative;
-    padding-left: 35px;
-    margin-bottom: 12px;
-    cursor: pointer;
-    font-size: 22px;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-  }
-  
-  /* Hide the browser's default checkbox */
-  .container input {
-    position: absolute;
-    opacity: 0;
-    cursor: pointer;
-    height: 0;
-    width: 0;
-  }
-  
