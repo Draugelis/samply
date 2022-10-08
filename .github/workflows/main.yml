@@ -1,14 +1,6 @@
 name: Lint
 
-on:
-  # Trigger the workflow on push or pull request,
-  # but only for the main branch
-  push:
-    branches:
-      - main
-  pull_request:
-    branches:
-      - main
+on: [push, pull_request]
 
 jobs:
   run-linters:
@@ -27,7 +19,18 @@ jobs:
       - name: Install Python dependencies
         run: pip install flake8
 
+      - name: Set up Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12
+
+      - name: Install Node.js dependencies
+        run: npm ci
+
       - name: Run linters
         uses: wearerequired/lint-action@v2
         with:
           flake8: true
+          prettier: true
+          prettier_args: "--single-quote	--bracket-same-line --parser babel-flow"
+          prettier_dir: app/
