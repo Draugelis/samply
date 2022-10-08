@@ -136,6 +136,7 @@ function stepRestart() {
 function addTrackPanel(track_data) {
   const track_panel = document.createElement("div");
   track_panel.classList.add("panel");
+  track_panel.classList.add("fadein");
   
   const track_panel_head = document.createElement("p");
   track_panel_head.classList.add("panel-heading");
@@ -189,6 +190,7 @@ function getTrackUris() {
 function addPlaylistPanel(playlist_data) {
   const playlist_panel = document.createElement("div");
   playlist_panel.classList.add("box");
+  playlist_panel.classList.add("fadein");
   playlist_panel.setAttribute("id", "playlistPanel");
 
   const embed_url = `https://open.spotify.com/embed/playlist/${playlist_data.id}?theme=0`;
