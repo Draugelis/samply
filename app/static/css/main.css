@@ -1,8 +1,3 @@
-@font-face {
-  font-family: Circular;
-  src: url("../fonts/ProductSans-Medium.ttf");
-}
-
 .hide {
   display: none !important;
 }
@@ -16,7 +11,41 @@
   0% {
     opacity: 0;
   }
+
   100% {
     opacity: 1;
   }
+}
+
+body {
+  height: 100vh;
+}
+
+.hero.is-primary {
+  background-color: #ef7c8e;
+}
+
+.button.is-primary {
+  background-color: #ef7c8e;
+}
+
+.button.is-primary.is-hovered,
+.button.is-primary:hover {
+  background-color: #d8a7b1;
+}
+
+.button.is-primary.is-active,
+.button.is-primary:active {
+  background-color: #ef7c8e;
+}
+
+.button.is-primary.is-active,
+.button.is-primary.is-focused,
+.button.is-primary:active,
+.button.is-primary:focus {
+  border-color: #e2808a;
+}
+
+input[type="checkbox"] {
+  accent-color: #d8a7b1;
 }
