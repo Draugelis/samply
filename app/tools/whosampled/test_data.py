@@ -1,3 +1,5 @@
+# flake8: noqa
+
 test_search_page_success = """
 <body>
 <div class="ad-slot">
