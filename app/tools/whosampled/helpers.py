@@ -34,9 +34,9 @@ def scrape_samples(html):
     samples = sample_soup.findAll('div', {'class': 'sampleEntry'})
     sample_list = []
     for sample in samples:
-        sample_name = sample.findAll('a', {'class': 'trackName'})[0].text
-        sample_artist = sample.findAll('span', {'class': 'trackArtist'})[0].a.text
-        sample_list.append(f'{sample_name} - {sample_artist}')
+        name = sample.findAll('a', {'class': 'trackName'})[0].text
+        artist = sample.findAll('span', {'class': 'trackArtist'})[0].a.text
+        sample_list.append(f'{name} - {artist}')
 
     return sample_list
 
