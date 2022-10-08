@@ -1,6 +1,5 @@
 import json
 import unittest
-from unittest.mock import patch
 import responses
 
 from .create_playlist import create_playlist
@@ -16,7 +15,7 @@ class TestCreatePlaylist(unittest.TestCase):
         )
 
         responses.post(
-            url=f'https://api.spotify.com/v1/users/1234567890/playlists/',
+            url='https://api.spotify.com/v1/users/1234567890/playlists/',
             body=json.dumps(new_playlist_response),
             status=201
         )
