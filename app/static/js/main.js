@@ -5,6 +5,9 @@ document.getElementById("backButton").addEventListener("click", stepBack);
 document.getElementById("restartButton").addEventListener("click", stepRestart);
 document.getElementById("spotifyButton").addEventListener("click", spotify_login);
 
+showInput();
+
+
 function getCookie(name) {
   const value = `; ${document.cookie}`;
   const parts = value.split(`; ${name}=`);
@@ -105,6 +108,14 @@ async function createPlaylist() {
   document.getElementById("playlistCreateButton").classList.remove("is-loading");
 }
 
+function showInput() {
+  if(getCookie("spotify_token")) {
+    document.getElementById("trackInput").classList.remove("hide");
+  }
+  else {
+    document.getElementById("spotifyLogin").classList.remove("hide");
+  }
+}
 
 function stepForward() {
   document.getElementById("trackInput").classList.add("hide");
@@ -165,7 +176,6 @@ function getTrackBlock(track_id) {
 
   return track_entry_block;
 }
-
 
 function getTrackUris() {
   const selected_tracks = Array.from(document.querySelectorAll(
