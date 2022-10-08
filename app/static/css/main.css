@@ -1,18 +1,22 @@
 @font-face {
-    font-family: Circular;
-    src: url("../fonts/ProductSans-Medium.ttf");
+  font-family: Circular;
+  src: url("../fonts/ProductSans-Medium.ttf");
 }
 
 .hide {
-    display: none!important;
+  display: none !important;
 }
 
 .fadein {
-    opacity: 1;
-    animation: fade-in 1.5s linear;
+  opacity: 1;
+  animation: fade-in 1.5s linear;
 }
 
 @keyframes fade-in {
-  0% { opacity: 0 }
-  100% { opacity: 1 }
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
