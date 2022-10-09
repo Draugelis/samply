@@ -24,13 +24,13 @@ jobs:
         with:
           node-version: 12
 
-      - name: Install Node.js dependencies
+      - name: Install prettier
         run: npm install prettier
 
       - name: Run linters
         uses: wearerequired/lint-action@v2
         with:
           flake8: true
-          prettier_args: "--check --single-quote	--bracket-same-line --parser babel-flow"
-          prettier_dir: app/
           prettier: true
+          prettier_args: "--single-quote	--bracket-same-line"
+          prettier_dir: app/
