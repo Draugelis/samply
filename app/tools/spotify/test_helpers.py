@@ -12,7 +12,8 @@ class TestHelpers(unittest.TestCase):
         })
 
     def test_parse_track(self):
-        self.assertEqual(parse_track(track_search_results['tracks']['items'][0]), {
+        track = track_search_results['tracks']['items'][0]
+        self.assertEqual(parse_track(track), {
             'artist': 'Nas',
             'track': 'N.Y. State of Mind',
             'id': '0trHOzAhNpGCsGBEu7dOJo'

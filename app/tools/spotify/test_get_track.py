@@ -4,7 +4,7 @@ import unittest
 import responses
 
 from .get_track import get_track
-from .test_data import track_results, user_results
+from .test_data import track_results
 
 
 class TestGetTrack(unittest.TestCase):
