@@ -32,5 +32,5 @@ jobs:
         with:
           flake8: true
           prettier: true
-          prettier_args: "--single-quote	--bracket-same-line"
+          prettier_args: "--write --single-quote	--bracket-same-line"
           prettier_dir: app/
