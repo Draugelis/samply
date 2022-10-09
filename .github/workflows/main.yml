@@ -31,6 +31,6 @@ jobs:
         uses: wearerequired/lint-action@v2
         with:
           flake8: true
-          prettier_args: "--single-quote	--bracket-same-line --parser babel-flow"
+          prettier_args: "--check --single-quote	--bracket-same-line --parser babel-flow"
           prettier_dir: app/
           prettier: true
