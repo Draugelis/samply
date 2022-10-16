@@ -17,18 +17,35 @@ function getCookie(name) {
   if (parts.length === 2) return parts.pop().split(';').shift();
 }
 
-function spotify_login() {
-  let client_id = '';
-  let redirect_uri = window.location.href + 'spotify';
-  let scope = 'playlist-modify-public';
+async function spotify_login() {
+  const url = '/spotify_client/';
+  const requestOptions = {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  };
 
-  let url = 'https://accounts.spotify.com/authorize';
-  url += '?response_type=token';
-  url += '&client_id=' + encodeURIComponent(client_id);
-  url += '&scope=' + encodeURIComponent(scope);
-  url += '&redirect_uri=' + encodeURIComponent(redirect_uri);
+  await fetch(url, requestOptions)
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error('Failed fetching Spotify client id');
+      }
+      return response.json();
+    })
+    .then((json) => {
+      const client_id = json.spotify_client_id;
+      const redirect_uri = window.location.href + 'spotify';
+      const scope = 'playlist-modify-public';
 
-  window.location.replace(url);
+      let url = 'https://accounts.spotify.com/authorize';
+      url += '?response_type=token';
+      url += '&client_id=' + encodeURIComponent(client_id);
+      url += '&scope=' + encodeURIComponent(scope);
+      url += '&redirect_uri=' + encodeURIComponent(redirect_uri);
+
+      window.location.href = url;
+    });
 }
 
 async function addTrack() {
