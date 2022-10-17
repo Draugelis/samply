@@ -21,8 +21,6 @@ def collect_samples(track, token):
         except Exception:
             pass
 
-    track_data = find_track_data(track, token)
-
     return {
         'status': 'OK',
         'track': track_data,
