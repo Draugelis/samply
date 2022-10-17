@@ -32,7 +32,13 @@ def search_track(track, token):
         logger.error(f'{track} search failed; Status: {response.status_code}')
         raise Exception('Track search failed')
 
+    raw_track_data = response.json()['tracks']['items']
+
+    if not raw_track_data:
+        logger.error(f'{track} search failed; No data on Spotify')
+        raise Exception('Track search failed')
+
     logger.info(f'{track} was found')
-    track_data = parse_track(response.json()['tracks']['items'][0])
+    track_data = parse_track(raw_track_data[0])
 
     return track_data
