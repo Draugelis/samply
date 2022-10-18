@@ -79,6 +79,7 @@ async function addTrack() {
         addTrackPanel(json);
       } else {
         hightlightFieldError('trackInputText');
+        addError(track, json.error);
       }
     })
     .catch((err) => console.error(err.message));
@@ -119,6 +120,7 @@ async function createPlaylist() {
         addPlaylistPanel(json);
       } else {
         hightlightFieldError('playlistInputText');
+        addError(playlist_name, json.error);
       }
     })
     .catch((err) => console.error(err.message));
@@ -234,4 +236,26 @@ function hightlightFieldError(field_id) {
   setTimeout(() => {
     document.getElementById(field_id).classList.remove('is-danger');
   }, '5000');
+}
+
+function addError(query, error) {
+  const message = `${error}: ${query}`;
+  const notification = getNotification(message, 'is-primary');
+  document.getElementById('notifications').prepend(notification);
+}
+
+function getNotification(message, type) {
+  const delete_button = document.createElement('button');
+  delete_button.classList.add('delete');
+  delete_button.addEventListener('click', () =>
+    delete_button.parentNode.remove()
+  );
+  const notification = document.createElement('div');
+  notification.classList.add('notification');
+  notification.classList.add(type);
+  notification.classList.add('fadein');
+  notification.innerText = message;
+  notification.prepend(delete_button);
+
+  return notification;
 }
