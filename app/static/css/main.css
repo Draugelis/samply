@@ -49,3 +49,8 @@ body {
 input[type='checkbox'] {
   accent-color: #d8a7b1;
 }
+
+.notification.is-primary {
+  background-color: #ef7c8e;
+  margin-right: 0.75rem;
+}
