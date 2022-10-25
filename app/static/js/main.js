@@ -49,9 +49,14 @@ async function spotify_login() {
 }
 
 async function addTrack() {
-  document.getElementById('trackInputButton').classList.add('is-loading');
   const track = document.getElementById('trackInputText').value;
   document.getElementById('trackInputText').value = '';
+  if(track.length == 0) {
+    hightlightFieldError('trackInputText');
+    return;
+  }
+
+  document.getElementById('trackInputButton').classList.add('is-loading');
 
   const url = '/samples/';
   const data = {
@@ -88,9 +93,14 @@ async function addTrack() {
 }
 
 async function createPlaylist() {
-  document.getElementById('playlistCreateButton').classList.add('is-loading');
   const tracks = getTrackUris();
   const playlist_name = document.getElementById('playlistInputText').value;
+  if(playlist_name.length == 0) {
+    hightlightFieldError('playlistInputText');
+    return;
+  }
+
+  document.getElementById('playlistCreateButton').classList.add('is-loading');
 
   const url = '/playlist/';
 
